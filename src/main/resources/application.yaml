@@ -1,0 +1,12 @@
+server:
+  port: ${API_PORT:8990}
+  servlet:
+    context-path: "/shop_kafka_receiver/api"
+  # For include message error to http response!!!
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: shop_kafka_receiver
+
