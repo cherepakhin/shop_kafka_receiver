@@ -14,5 +14,5 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 <a id="links"></a>
 ### Ссылки
 
-[Основной проект](https://github.com/cherepakhin/shop_kotlin)
-[https://www.baeldung.com/rest-template] (https://www.baeldung.com/rest-template)
+- [Основной проект](https://github.com/cherepakhin/shop_kotlin)
+- [https://www.baeldung.com/rest-template] (https://www.baeldung.com/rest-template)
