@@ -16,3 +16,4 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 
 - [Основной проект](https://github.com/cherepakhin/shop_kotlin)
 - [https://www.baeldung.com/rest-template](https://www.baeldung.com/rest-template)
+- [Конфигурирование, запуск и работа с Kafka](http://v.perm.ru/main/index.php/homepage/66-konfigurirovanie-zapusk-i-rabota-s-kafka)
