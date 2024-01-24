@@ -11,4 +11,6 @@ class KafkaConsumerTestTopicTextService {
     fun read(message: String) {
         logger.info(message)
     }
+//TODO: Convert Json to Object
+//    https://www.bezkoder.com/kotlin-convert-json-to-object-jackson/
 }
