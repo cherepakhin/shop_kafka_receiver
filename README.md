@@ -14,7 +14,7 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 Программа будет принимать описания товаров из очереди Kafka и обновлять описания товаров через REST внешнего проекта shop_kotlin, используя [Spring RestTemplate](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html).
 
 <a id="parameters"></a>
-### Параметры запуска сервера Kafka
+### Параметры запуска <ins>СЕРВЕРА</ins> Kafka
 
 [Параметры сервера Kafka server.properties](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/server.properties)
 
@@ -38,6 +38,7 @@ MES
 MES1
 ````
 
+Сервис приема сообщений из топика "test_topic" KafkaConsumerTestTopicTextService
 
 <a id="links"></a>
 ### Ссылки
@@ -45,3 +46,4 @@ MES1
 - [Основной проект](https://github.com/cherepakhin/shop_kotlin)
 - [https://www.baeldung.com/rest-template](https://www.baeldung.com/rest-template)
 - [Конфигурирование, запуск и работа с Kafka](http://v.perm.ru/main/index.php/homepage/66-konfigurirovanie-zapusk-i-rabota-s-kafka)
+- [Apache Kafka with Kotlin](https://www.baeldung.com/kotlin/apache-kafka)

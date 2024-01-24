@@ -4,8 +4,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ShopKafkaReceiver
-
-fun main(args: Array<String>) {
-  runApplication<ShopKafkaReceiver>(*args)
+class ShopKafkaReceiverApp {
+  companion object {
+    @JvmStatic
+    fun main(args: Array<String>) {
+      runApplication<ShopKafkaReceiverApp>(*args)
+    }
+  }
 }
