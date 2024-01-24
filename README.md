@@ -41,6 +41,33 @@ MES1
 Тестовый сервис приема сообщений из топика __"test_topic"__:
 [KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTestTopicTextService.kt)
 
+<a id="nexus"></a>
+### Deploy to NEXUS repository
+
+Возможен с использованием Jenkins (описано выше) или ручной deploy в Nexus с личного компьютера.
+
+Для deploy выполнить:
+
+````shell
+./gradlew publish
+````
+
+Путь к репозиторию установлен в build.gradle.kts:
+
+````shell
+url = uri("http://v.perm.ru:8082/repository/ru.perm.v/")
+````
+
+Для установки переменных доступа к Nexus repository выполнить в shell:
+
+````shell
+$ export NEXUS_CRED_USR=admin
+$ export NEXUS_CRED_PSW=pass
+````
+
+![nexus](doc/nexus.png)
+
+
 <a id="links"></a>
 ### Ссылки
 
