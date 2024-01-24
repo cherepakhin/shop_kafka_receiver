@@ -38,7 +38,8 @@ MES
 MES1
 ````
 
-Сервис приема сообщений из топика "test_topic" KafkaConsumerTestTopicTextService
+Тестовый сервис приема сообщений из топика __"test_topic"__:
+[KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTestTopicTextService.kt)
 
 <a id="links"></a>
 ### Ссылки
