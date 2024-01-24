@@ -16,7 +16,7 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 <a id="parameters"></a>
 ### Параметры запуска сервера Kafka
 
-[Параметры сервера Kafka server.properties](https://github.com/cherepakhin/shop_kafka_receiver/doc/server.properties)
+[Параметры сервера Kafka server.properties](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/server.properties)
 
 <a id="work_in_shell"></a>
 ### Работа из shell
