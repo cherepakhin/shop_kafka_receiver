@@ -5,6 +5,7 @@ group = "ru.perm.v"
 version = "0.24.0125"
 description = "Shop Kafka receiver"
 val kafkaApiVersion = "3.3.1"
+var shopKotlinExtDtoVersion = "0.0.4"
 
 buildscript {
 	var kotlinVersion: String? by extra; kotlinVersion = "1.1.51"
@@ -22,15 +23,21 @@ buildscript {
 repositories {
 	mavenCentral()
 	maven {
+		url = uri("https://plugins.gradle.org/m2/")
+	}
+	maven {
 
 		url = uri("http://v.perm.ru:8082/repository/ru.perm.v") //OK
 		isAllowInsecureProtocol = true
 		credentials {
+// export NEXUS_CI_USER=admin
+// echo $NEXUS_CI_USER
 			username = System.getenv("NEXUS_CRED_USR") ?: extra.properties["nexus-ci-username"] as String?
+// export NEXUS_CI_PASS=pass
+// echo $NEXUS_CI_PASS
 			password = System.getenv("NEXUS_CRED_PASS") ?: extra.properties["nexus-ci-password"] as String?
 		}
 	}
-	gradlePluginPortal()
 }
 
 plugins {
@@ -50,6 +57,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.kafka:spring-kafka")
+
+	implementation("ru.perm.v:shop_kotlin_extdto:$shopKotlinExtDtoVersion")
 // EXAMPLE FOR KAFKA STREAM
 //	implementation("org.apache.kafka:kafka-streams")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
