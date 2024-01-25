@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "ru.perm.v"
 // change version on publishing
-version = "0.24.0124"
+version = "0.24.0125"
 description = "Shop Kafka receiver"
 val kafkaApiVersion = "3.3.1"
 
