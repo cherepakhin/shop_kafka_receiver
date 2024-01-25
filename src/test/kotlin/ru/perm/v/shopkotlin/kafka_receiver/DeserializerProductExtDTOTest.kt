@@ -9,7 +9,7 @@ import ru.perm.v.shopkotlin.extdto.ProductExtDTO
 class DeserializerProductExtDTOTest {
     @Test
     fun withKafkaJsonDeserializer() {
-        // this used KAFKA dependency
+        // here used KAFKA dependency
         val deserializer = JsonDeserializer(ProductExtDTO::class.java)
         val json = "{\"n\":10,\"name\":\"NAME_10\",\"groupDtoN\":100}"
 
@@ -20,7 +20,7 @@ class DeserializerProductExtDTOTest {
 
     @Test
     fun withJacksonMapper() {
-        // this used Jackson dependency
+        // here used Jackson dependency
         val mapper = jacksonObjectMapper()
         val json = "{\"n\":10,\"name\":\"NAME_10\",\"groupDtoN\":100}"
 
