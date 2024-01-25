@@ -16,7 +16,7 @@ class KafkaConsumerProductExtDTOJsonTopicService {
     val jsonProductExtDTODeserializer = JsonDeserializer(ProductExtDTO::class.java)
     private val logger = LoggerFactory.getLogger(this.javaClass.name)
 
-    @KafkaListener(topics = ["product_ext_dto_topic"], groupId = "test_id")
+    @KafkaListener(topics = ["product_ext_dto"], groupId = "test_id")
     fun readFromTopic(json: String): ProductExtDTO {
         val productExtDto = jsonProductExtDTODeserializer.deserialize("", json.toByteArray())
         logger.info(productExtDto.toString())

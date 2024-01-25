@@ -4,6 +4,8 @@
 [Цель](#target)<br/>
 [Параметры запуска сервера Kafka](#parameters)<br/>
 [Проверка работы с Kafka из shell](#work_in_shell)<br/>
+
+[Установка параметров запуска](#set_run_params)<br/>
 [Запуск проекта](#run_receiver)<br/>
 [Ручная отправка в очередь из консоли продюсера](#manual_send)<br/>
 
@@ -51,6 +53,22 @@ zookeeper.connect=192.168.1.20:2181
 ~$ ~/tools/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.20:9092 --topic samples
 MES
 MES1
+````
+
+<a id="set_run_params"></a>
+### Установка параметров запуска
+
+Порт программы задается в application.yaml (по умолчанию 8990)
+
+````yaml
+server:
+  port: ${API_PORT:8990}
+````
+
+Для установки переменной API_PORT выполнить:
+
+````shell
+export API_PORT=8990
 ````
 
 <a id="run_receiver"></a>

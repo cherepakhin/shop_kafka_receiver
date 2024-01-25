@@ -9,10 +9,10 @@ class KafkaConsumerProductExtDTOJsonTopicServiceTest {
 
     @Test
     fun readFromTopic() {
-        val consumer = KafkaConsumerProductExtDTOJsonTopicService()
+        val consumerService = KafkaConsumerProductExtDTOJsonTopicService()
         val json = "{\"n\":10,\"name\":\"NAME_10\",\"groupDtoN\":100}"
 
-        val productExtDto = consumer.readFromTopic(json)
+        val productExtDto = consumerService.readFromTopic(json)
 
         assertEquals(ProductExtDTO(10, "NAME_10", 100), productExtDto)
     }
