@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component
 import ru.perm.v.shopkotlin.extdto.ProductExtDTO
 @Component
 /**
- * Reader from "json_topic"
+ * Reader from topic "product_ext_dto"
  */
-class KafkaConsumerJsonTopicService {
+class KafkaConsumerProductExtDTOJsonTopicService {
 
     val jsonProductExtDTODeserializer = JsonDeserializer(ProductExtDTO::class.java)
     private val logger = LoggerFactory.getLogger(this.javaClass.name)
-    @KafkaListener(topics = ["json_topic"], groupId = "test_id")
-    fun read(json: String) {
+    @KafkaListener(topics = ["product_ext_dto_topic"], groupId = "test_id")
+    fun readFromTopic(json: String):ProductExtDTO {
         val productExtDto = jsonProductExtDTODeserializer.deserialize("", json.toByteArray())
         logger.info(productExtDto.toString())
-        //TODO: Continue work
+        return productExtDto
     }
 }

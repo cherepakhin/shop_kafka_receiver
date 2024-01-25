@@ -86,11 +86,18 @@ $ ./doc/run-producer.sh test_topic_text
 INFO 10436 --- [ntainer#1-0-C-1] .v.s.k.KafkaConsumerTestTopicTextService : MESSAGE_TEXT
 ````
 
-Логирование принятого сообщения в программе из топика "json_topic":
+### Ручная проверка приема JSON из топика "product_ext_dto_topic"
 
-````shell
-INFO 4849 --- [ntainer#0-0-C-1] r.p.v.s.k.KafkaConsumerJsonTopicService  : MESSAGE_TO_JSON_TOPIC
-````
+$ ./run-producer.sh product_ext_dto_topic
+> {"n":10,"name":"NAME_10","groupDtoN":100}
+
+В лог будет выведено:
+
+```text
+KafkaConsumerProductExtDTOJsonTopicService : ProductExtDTO(n=10, name='NAME_10', groupDtoN=100)
+
+```
+
 <a id="jenkins"></a>
 ### Сборка Jenkins
 
