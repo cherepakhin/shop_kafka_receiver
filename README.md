@@ -3,7 +3,8 @@
 ### Оглавление:
 [Цель](#target)<br/>
 [Параметры запуска сервера Kafka](#parameters)<br/>
-[Работа из shell](#work_in_shell)<br/>
+[Запуск проекта](#run_receiver)<br/>
+[Работа с Kafka из shell](#work_in_shell)<br/>
 [Ссылки](#links)<br/>
 
 <a id="target"></a>
@@ -18,8 +19,20 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 
 [Параметры сервера Kafka server.properties](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/server.properties)
 
+<a id="run_receiver"></a>
+### Запуск проекта
+
+````shell
+~$ ./gradlew bootRun
+
+INFO 764 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : test_id: partitions assigned: [json_topic-0]
+INFO 764 --- [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : test_id: partitions assigned: [test_topic_text-0]
+INFO 764 --- [ntainer#0-0-C-1] r.p.v.s.k.KafkaConsumerJsonTopicService  : dddddddd
+````
+Запущено слушатели для очередей "test_topic_text", "json_topic" .
+
 <a id="work_in_shell"></a>
-### Работа из shell
+### Работа с Kafka из shell
 
 Отправка сообщения:
 
@@ -40,6 +53,9 @@ MES1
 
 Тестовый сервис приема сообщений из топика __"test_topic"__:
 [KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTestTopicTextService.kt)
+
+Тестовый сервис приема сообщений из топика __"json_topic"__:
+[KafkaConsumerJsonTopicService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerJsonTopicService.kt)
 
 <a id="nexus"></a>
 ### Deploy to NEXUS repository
