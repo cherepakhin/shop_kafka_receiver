@@ -60,6 +60,12 @@ $ ./doc/run-producer.sh test_topic_text
 >MESSAGE_TEXT
 ````
 
+Тестовый сервис приема сообщений из топика __"test_topic_text"__:
+[KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTestTopicTextService.kt)
+
+Тестовый сервис приема сообщений из топика __"json_topic"__:
+[KafkaConsumerJsonTopicService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerJsonTopicService.kt)
+
 Логирование принятого сообщения в программе из топика "test_topic_text":
 
 ````shell
@@ -71,12 +77,6 @@ INFO 10436 --- [ntainer#1-0-C-1] .v.s.k.KafkaConsumerTestTopicTextService : MESS
 ````shell
 INFO 4849 --- [ntainer#0-0-C-1] r.p.v.s.k.KafkaConsumerJsonTopicService  : MESSAGE_TO_JSON_TOPIC
 ````
-
-Тестовый сервис приема сообщений из топика __"test_topic_text"__:
-[KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTestTopicTextService.kt)
-
-Тестовый сервис приема сообщений из топика __"json_topic"__:
-[KafkaConsumerJsonTopicService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerJsonTopicService.kt)
 
 <a id="nexus"></a>
 ### Deploy to NEXUS repository
