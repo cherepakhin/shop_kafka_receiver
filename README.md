@@ -100,9 +100,6 @@ $ export NEXUS_CRED_USR=admin
 $ export NEXUS_CRED_PSW=pass
 ````
 
-![nexus](doc/nexus.png)
-
-
 <a id="links"></a>
 ### Ссылки
 
