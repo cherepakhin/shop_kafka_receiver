@@ -77,6 +77,14 @@ INFO 10436 --- [ntainer#1-0-C-1] .v.s.k.KafkaConsumerTestTopicTextService : MESS
 ````shell
 INFO 4849 --- [ntainer#0-0-C-1] r.p.v.s.k.KafkaConsumerJsonTopicService  : MESSAGE_TO_JSON_TOPIC
 ````
+<a id="jenkins"></a>
+### Сборка Jenkins
+
+Сборка описана в [Jenkinsfile](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/Jenkinsfile)
+
+Результаты сборки:
+
+![jenkins_build](doc/jenkins_build.png)
 
 <a id="nexus"></a>
 ### Deploy to NEXUS repository
