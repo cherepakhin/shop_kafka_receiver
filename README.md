@@ -5,7 +5,11 @@
 [Параметры запуска сервера Kafka](#parameters)<br/>
 [Проверка работы с Kafka из shell](#work_in_shell)<br/>
 [Запуск проекта](#run_receiver)<br/>
-[Ручная отправка в очередь из консоли продюсера](#manual_send)<br/>
+[Ручная отправка в очередь из консоли продюсера](#jenkins)<br/>
+
+[Сборка Jenkins](#jenkins)<br/>
+[Deploy to NEXUS repository](#nexus)<br/>
+
 [Ссылки](#links)<br/>
 
 <a id="target"></a>
