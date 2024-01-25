@@ -3,8 +3,9 @@
 ### Оглавление:
 [Цель](#target)<br/>
 [Параметры запуска сервера Kafka](#parameters)<br/>
+[Проверка работы с Kafka из shell](#work_in_shell)<br/>
 [Запуск проекта](#run_receiver)<br/>
-[Работа с Kafka из shell](#work_in_shell)<br/>
+[Ручная отправка в очередь из консоли продюсера](#manual_send)<br/>
 [Ссылки](#links)<br/>
 
 <a id="target"></a>
@@ -19,20 +20,8 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 
 [Параметры сервера Kafka server.properties](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/server.properties)
 
-<a id="run_receiver"></a>
-### Запуск проекта
-
-````shell
-~$ ./gradlew bootRun
-
-INFO 764 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : test_id: partitions assigned: [json_topic-0]
-INFO 764 --- [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : test_id: partitions assigned: [test_topic_text-0]
-INFO 764 --- [ntainer#0-0-C-1] r.p.v.s.k.KafkaConsumerJsonTopicService  : dddddddd
-````
-Запущено слушатели для очередей "test_topic_text", "json_topic" .
-
 <a id="work_in_shell"></a>
-### Работа с Kafka из shell
+### Проверка работы с Kafka из shell
 
 Отправка сообщения:
 
@@ -51,7 +40,39 @@ MES
 MES1
 ````
 
-Тестовый сервис приема сообщений из топика __"test_topic"__:
+<a id="run_receiver"></a>
+### Запуск проекта
+
+````shell
+~$ ./gradlew bootRun
+[ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : test_id: partitions assigned: [json_topic-0]
+[ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : test_id: partitions assigned: [test_topic_text-0]
+````
+
+Запущено слушатели для очередей "json_topic", "test_topic_text" .
+
+<a id="manual_send"></a>
+### Ручная отправка в очередь из консоли продюсера 
+[doc/run-producer.sh](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/run-producer.sh)
+
+````shell
+$ ./doc/run-producer.sh test_topic_text
+>MESSAGE_TEXT
+````
+
+Логирование принятого сообщения в программе из топика "test_topic_text":
+
+````shell
+INFO 10436 --- [ntainer#1-0-C-1] .v.s.k.KafkaConsumerTestTopicTextService : MESSAGE_TEXT
+````
+
+Логирование принятого сообщения в программе из топика "json_topic":
+
+````shell
+INFO 4849 --- [ntainer#0-0-C-1] r.p.v.s.k.KafkaConsumerJsonTopicService  : MESSAGE_TO_JSON_TOPIC
+````
+
+Тестовый сервис приема сообщений из топика __"test_topic_text"__:
 [KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTestTopicTextService.kt)
 
 Тестовый сервис приема сообщений из топика __"json_topic"__:
@@ -59,8 +80,6 @@ MES1
 
 <a id="nexus"></a>
 ### Deploy to NEXUS repository
-
-Возможен с использованием Jenkins (описано выше) или ручной deploy в Nexus с личного компьютера.
 
 Для deploy выполнить:
 
