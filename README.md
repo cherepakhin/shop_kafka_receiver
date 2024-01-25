@@ -24,6 +24,15 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 
 [Параметры сервера Kafka server.properties](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/server.properties)
 
+Ключевые параметры в server.properties:
+
+```text
+...
+listeners=PLAINTEXT://192.168.1.20:9092
+...
+zookeeper.connect=192.168.1.20:2181
+```
+
 <a id="work_in_shell"></a>
 ### Проверка работы с Kafka из shell
 
