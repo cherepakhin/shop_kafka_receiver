@@ -18,12 +18,6 @@ pipeline {
             }
         }
 
-        stage('Integration tests') {
-            steps {
-                sh './gradlew clean test --tests *TestIntegration'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh './gradlew build'
