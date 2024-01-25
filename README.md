@@ -57,7 +57,8 @@ MES1
 
 <a id="manual_send"></a>
 ### Ручная отправка в очередь из консоли продюсера 
-[doc/run-producer.sh](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/run-producer.sh)
+
+Скрипт для тестовых отправок в очередь [doc/run-producer.sh](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/run-producer.sh)
 
 ````shell
 $ ./doc/run-producer.sh test_topic_text
