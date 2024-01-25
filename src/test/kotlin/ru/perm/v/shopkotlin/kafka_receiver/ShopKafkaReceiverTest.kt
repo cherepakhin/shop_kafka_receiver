@@ -9,8 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest
 @AutoConfigureMockMvc
 class ShopKafkaReceiverTest {
 
-  @Test
-  fun `simple demo test`() {
-    assertEquals(1, 1)
-  }
+    @Test
+    fun `simple demo test`() {
+        assertEquals(1, 1)
+    }
 }
