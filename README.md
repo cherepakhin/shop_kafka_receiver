@@ -71,6 +71,13 @@ server:
 export API_PORT=8990
 ````
 
+Адрес сервера Kafka в environment переменной KAFKA_SERVER (по умолчанию 192.168.1.20:9092). 
+Для установки переменной KAFKA_SERVER выполнить:
+
+````shell
+export KAFKA_SERVER=192.168.1.20:9092
+````
+
 <a id="run_receiver"></a>
 ### Запуск проекта
 
