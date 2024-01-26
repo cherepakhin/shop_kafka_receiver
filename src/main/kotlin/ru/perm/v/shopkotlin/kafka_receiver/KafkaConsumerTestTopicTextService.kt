@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 class KafkaConsumerTestTopicTextService {
     private val logger = LoggerFactory.getLogger(this.javaClass.name)
 
-    @KafkaListener(topics = ["test_topic_text"], groupId = "test_id")
+    @KafkaListener(topics = ["product_ext_dto_topic"], groupId = "test_id")
     fun read(message: String) {
         logger.info(message)
     }
