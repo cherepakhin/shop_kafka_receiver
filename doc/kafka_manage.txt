@@ -1,0 +1,117 @@
+ ~/tools $ kafkat
+[DEPRECATION] The trollop gem has been renamed to optimist and will no longer be supported. Please switch to optimist as soon as possible.
+kafkat 0.3.0: Simplified command-line administration for Kafka brokers
+usage: kafkat [command] [options]
+
+Here's a list of supported commands:
+
+  brokers                                                             Print available brokers from Zookeeper.
+  clean-indexes                                                       Delete untruncated Kafka log indexes from the filesystem.
+  cluster-restart help                                                Determine the server restart sequence for kafka
+  controller                                                          Print the current controller.
+  drain <broker id> [--topic <t>] [--brokers <ids>]                   Reassign partitions from a specific broker to destination brokers.
+  elect-leaders [topic]                                               Begin election of the preferred leaders.
+  partitions [topic]                                                  Print partitions by topic.
+  partitions [topic] --under-replicated                               Print partitions by topic (only under-replicated).
+  partitions [topic] --unavailable                                    Print partitions by topic (only unavailable).
+  reassign [topics] [--brokers <ids>] [--replicas <n>]                Begin reassignment of partitions.
+  resign-rewrite <broker id>                                          Forcibly rewrite leaderships to exclude a broker.
+  resign-rewrite <broker id> --force                                  Same as above but proceed if there are no available ISRs.
+  set-replication-factor [topic] [--newrf <n>] [--brokers id[,id]]    Set the replication factor of
+  shutdown <broker id>                                                Gracefully remove leaderships from a broker (requires JMX).
+  topics                                                              Print all topics.
+  verify-replicas  [--topics] [--broker <id>] [--print-details] [--print-summary]Check if all partitions in a topic have same number of replicas.
+
+vasi@v ~/tools $ kafkat topics
+[DEPRECATION] The trollop gem has been renamed to optimist and will no longer be supported. Please switch to optimist as soon as possible.
+product_ext_text_topic
+samples
+__consumer_offsets
+product_ext_dto
+text_topic
+
+vasi@v ~/tools $ kafkat brokers
+[DEPRECATION] The trollop gem has been renamed to optimist and will no longer be supported. Please switch to optimist as soon as possible.
+Broker		Socket
+0		192.168.1.20:9092
+
+v ~/tools $ kafkat controller
+[DEPRECATION] The trollop gem has been renamed to optimist and will no longer be supported. Please switch to optimist as soon as possible.
+The current controller is '0' (192.168.1.20:9092).
+
+# OK 31/01 21:50
+./kafka-run-class.sh kafka.admin.TopicCommand --describe --bootstrap-server 192.168.1.20:9092 --topic text_topic
+Topic: text_topic	TopicId: iA4J7HDUTtuFz-ZEvWgKUQ	PartitionCount: 1	ReplicationFactor: 1	Configs:
+	Topic: text_topic	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
+
+vasi@v ~/tools/kafka/bin $ ./kafka-run-class.sh kafka.admin.TopicCommand --describe --bootstrap-server 192.168.1.20:9092 --topic text_topic
+Topic: text_topic	TopicId: iA4J7HDUTtuFz-ZEvWgKUQ	PartitionCount: 1	ReplicationFactor: 1	Configs:
+	Topic: text_topic	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
+vasi@v ~/tools/kafka/bin $ ./kafka-run-class.sh kafka.admin.TopicCommand --describe --bootstrap-server 192.168.1.20:9092 --topic product_ext_dto
+Topic: product_ext_dto	TopicId: cSlqIGiZQgGZaZG7Wjhb-g	PartitionCount: 1	ReplicationFactor: 1	Configs:
+	Topic: product_ext_dto	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
+
+
+vasi@v ~/tools/kafka/bin $ ./kafka-run-class.sh kafka.admin.TopicCommand --describe --bootstrap-server 192.168.1.20:9092
+Topic: product_ext_text_topic	TopicId: R6qe2xkAQ6yg_y9iy_Juzw	PartitionCount: 1	ReplicationFactor: 1	Configs:
+	Topic: product_ext_text_topic	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
+Topic: __consumer_offsets	TopicId: A9tpTSx7Q-6NWa3t3g-W0w	PartitionCount: 50	ReplicationFactor: 1	Configs: compression.type=producer,cleanup.policy=compact,segment.bytes=104857600
+	Topic: __consumer_offsets	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 1	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 2	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 3	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 4	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 5	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 6	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 7	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 8	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 9	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 10	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 11	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 12	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 13	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 14	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 15	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 16	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 17	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 18	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 19	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 20	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 21	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 22	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 23	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 24	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 25	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 26	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 27	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 28	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 29	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 30	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 31	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 32	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 33	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 34	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 35	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 36	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 37	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 38	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 39	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 40	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 41	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 42	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 43	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 44	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 45	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 46	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 47	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 48	Leader: 0	Replicas: 0	Isr: 0
+	Topic: __consumer_offsets	Partition: 49	Leader: 0	Replicas: 0	Isr: 0
+Topic: product_ext_dto	TopicId: cSlqIGiZQgGZaZG7Wjhb-g	PartitionCount: 1	ReplicationFactor: 1	Configs:
+	Topic: product_ext_dto	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
+Topic: samples	TopicId: aTq8r5v-Q7C87f0oBAWS1A	PartitionCount: 1	ReplicationFactor: 1	Configs:
+	Topic: samples	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
+Topic: text_topic	TopicId: iA4J7HDUTtuFz-ZEvWgKUQ	PartitionCount: 1	ReplicationFactor: 1	Configs:
+	Topic: text_topic	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
+vasi@v ~/tools/kafka/bin $ ./kafka-run-class.sh kafka.admin.TopicCommand --describe --bootstrap-server 192.168.1.20:9092 --topic product_ext_dto
+Topic: product_ext_dto	TopicId: cSlqIGiZQgGZaZG7Wjhb-g	PartitionCount: 1	ReplicationFactor: 1	Configs:
+	Topic: product_ext_dto	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
