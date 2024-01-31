@@ -1,14 +1,14 @@
-package ru.perm.v.shopkotlin.kafka_receiver
+package ru.perm.v.shopkotlin.kafka_consumer
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ShopKafkaReceiverApp {
+class ShopKafkaConsumerApp {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            runApplication<ShopKafkaReceiverApp>(*args)
+            runApplication<ShopKafkaConsumerApp>(*args)
         }
     }
 }

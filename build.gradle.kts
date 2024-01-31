@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "ru.perm.v"
 // change version on publishing
 version = "0.24.0131"
-description = "Shop Kafka receiver"
+description = "Shop Kafka Consumer"
 val kafkaApiVersion = "3.3.1"
 var shopKotlinExtDtoVersion = "0.0.5"
 
@@ -101,5 +101,5 @@ publishing {
 
 // use ./gradlew bootRun
 springBoot {
-	mainClass.set("ru.perm.v.shopkotlin.kafka_receiver.ShopKafkaReceiverApp")
+	mainClass.set("ru.perm.v.shopkotlin.kafka_consumer.ShopKafkaConsumerApp")
 }

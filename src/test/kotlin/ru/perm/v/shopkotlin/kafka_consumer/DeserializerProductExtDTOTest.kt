@@ -1,4 +1,4 @@
-package ru.perm.v.shopkotlin.kafka_receiver
+package ru.perm.v.shopkotlin.kafka_consumer
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.junit.jupiter.api.Assertions.assertEquals

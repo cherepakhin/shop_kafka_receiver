@@ -1,4 +1,4 @@
-package ru.perm.v.shopkotlin.kafka_receiver
+package ru.perm.v.shopkotlin.kafka_consumer
 
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.annotation.KafkaListener

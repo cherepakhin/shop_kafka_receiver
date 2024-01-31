@@ -1,4 +1,4 @@
-package ru.perm.v.shopkotlin.kafka_receiver
+package ru.perm.v.shopkotlin.kafka_consumer
 
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.annotation.KafkaListener
@@ -16,7 +16,7 @@ class KafkaConsumerProductExtDTOJsonTopicService {
     val jsonProductExtDTODeserializer = JsonDeserializer(ProductExtDTO::class.java)
     private val logger = LoggerFactory.getLogger(this.javaClass.name)
 
-    @KafkaListener(topics = ["product_ext_dto_topic"], groupId = "test_id")
+    @KafkaListener(topics = ["product_ext_dto_topic"], groupId = "test_id", properties = ["auto.offset.reset=earliest"])
     fun readFromTopic(json: String): ProductExtDTO {
         val productExtDto = jsonProductExtDTODeserializer.deserialize("", json.toByteArray())
         logger.info(productExtDto.toString())
