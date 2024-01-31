@@ -1,1 +1,1 @@
-rootProject.name = "shop_kafka_receiver"
+rootProject.name = "shop_kafka_consumer"

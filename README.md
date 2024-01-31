@@ -6,7 +6,7 @@
 [Проверка работы с Kafka из shell](#work_in_shell)<br/>
 
 [Установка параметров запуска](#set_run_params)<br/>
-[Запуск проекта](#run_receiver)<br/>
+[Запуск проекта](#run_consumer)<br/>
 [Ручная отправка в очередь из консоли продюсера](#manual_send)<br/>
 
 [Сборка Jenkins](#jenkins)<br/>
@@ -24,7 +24,7 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 <a id="parameters"></a>
 ### Параметры запуска <ins>СЕРВЕРА</ins> Kafka
 
-[Параметры сервера Kafka server.properties](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/server.properties)
+[Параметры сервера Kafka server.properties](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/doc/server.properties)
 
 Ключевые параметры в server.properties (~/tools/kafka/config/server.properties):
 
@@ -78,7 +78,7 @@ export API_PORT=8990
 export KAFKA_SERVER=192.168.1.20:9092
 ````
 
-<a id="run_receiver"></a>
+<a id="run_consumer"></a>
 ### Запуск проекта
 
 ````shell
@@ -93,7 +93,7 @@ export KAFKA_SERVER=192.168.1.20:9092
 ### Ручная отправка в очередь из консоли продюсера для простой проверки работоспособности 
 
 
-Скрипт для тестовых отправок в очередь [doc/run-producer.sh](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/run-producer.sh)
+Скрипт для тестовых отправок в очередь [doc/run-producer.sh](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/doc/run-producer.sh)
 
 ````shell
 $ ./doc/run-producer.sh text_topic
@@ -101,10 +101,10 @@ $ ./doc/run-producer.sh text_topic
 ````
 
 Тестовый сервис приема сообщений из топика __"text_topic"__:
-[KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTextTopicService.kt)
+[KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_consumer/KafkaConsumerTextTopicService.kt)
 
 Тестовый сервис приема сообщений из топика __"product_ext_dto_topic"__:
-[KafkaConsumerProductExtDTOJsonTopicService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerJsonTopicService.kt)
+[KafkaConsumerProductExtDTOJsonTopicService.kt](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_consumer/KafkaConsumerJsonTopicService.kt)
 
 Логирование принятого сообщения в программе из топика "text_topic":
 
@@ -127,7 +127,7 @@ KafkaConsumerProductExtDTOJsonTopicService : ProductExtDTO(n=10, name='NAME_10',
 <a id="jenkins"></a>
 ### Сборка Jenkins
 
-Сборка описана в [Jenkinsfile](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/Jenkinsfile)
+Сборка описана в [Jenkinsfile](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/Jenkinsfile)
 
 Результаты сборки:
 
