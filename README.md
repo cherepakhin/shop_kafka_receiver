@@ -26,7 +26,7 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 
 [Параметры сервера Kafka server.properties](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/server.properties)
 
-Ключевые параметры в server.properties:
+Ключевые параметры в server.properties (~/tools/kafka/config/server.properties):
 
 ```text
 ...
@@ -90,22 +90,23 @@ export KAFKA_SERVER=192.168.1.20:9092
 Запущено слушатели для очередей "product_ext_dto_json", "product_ext_dto_topic" .
 
 <a id="manual_send"></a>
-### Ручная отправка в очередь из консоли продюсера 
+### Ручная отправка в очередь из консоли продюсера для простой проверки работоспособности 
+
 
 Скрипт для тестовых отправок в очередь [doc/run-producer.sh](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/run-producer.sh)
 
 ````shell
-$ ./doc/run-producer.sh product_ext_text_topic
+$ ./doc/run-producer.sh text_topic
 >MESSAGE_TEXT
 ````
 
-Тестовый сервис приема сообщений из топика __"product_ext_text_topic"__:
-[KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTestTopicTextService.kt)
+Тестовый сервис приема сообщений из топика __"text_topic"__:
+[KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTextTopicService.kt)
 
-Тестовый сервис приема сообщений из топика __"json_topic"__:
-[KafkaConsumerJsonTopicService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerJsonTopicService.kt)
+Тестовый сервис приема сообщений из топика __"product_ext_dto_topic"__:
+[KafkaConsumerProductExtDTOJsonTopicService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerJsonTopicService.kt)
 
-Логирование принятого сообщения в программе из топика "test_topic_text":
+Логирование принятого сообщения в программе из топика "text_topic":
 
 ````shell
 INFO 10436 --- [ntainer#1-0-C-1] .v.s.k.KafkaConsumerTestTopicTextService : MESSAGE_TEXT
