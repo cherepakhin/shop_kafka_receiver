@@ -115,3 +115,4 @@ Topic: text_topic	TopicId: iA4J7HDUTtuFz-ZEvWgKUQ	PartitionCount: 1	ReplicationF
 vasi@v ~/tools/kafka/bin $ ./kafka-run-class.sh kafka.admin.TopicCommand --describe --bootstrap-server 192.168.1.20:9092 --topic product_ext_dto
 Topic: product_ext_dto	TopicId: cSlqIGiZQgGZaZG7Wjhb-g	PartitionCount: 1	ReplicationFactor: 1	Configs:
 	Topic: product_ext_dto	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
+#TODO: Сделать нагрузочный тест для Kafka
