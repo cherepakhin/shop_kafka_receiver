@@ -87,7 +87,7 @@ export KAFKA_SERVER=192.168.1.20:9092
 [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : test_id: partitions assigned: [test_topic_text-0]
 ````
 
-Запущено слушатели для очередей "json_topic", "test_topic_text" .
+Запущено слушатели для очередей "product_ext_dto_json", "product_ext_dto_topic" .
 
 <a id="manual_send"></a>
 ### Ручная отправка в очередь из консоли продюсера 
@@ -95,11 +95,11 @@ export KAFKA_SERVER=192.168.1.20:9092
 Скрипт для тестовых отправок в очередь [doc/run-producer.sh](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/doc/run-producer.sh)
 
 ````shell
-$ ./doc/run-producer.sh test_topic_text
+$ ./doc/run-producer.sh product_ext_text_topic
 >MESSAGE_TEXT
 ````
 
-Тестовый сервис приема сообщений из топика __"test_topic_text"__:
+Тестовый сервис приема сообщений из топика __"product_ext_text_topic"__:
 [KafkaConsumerTestTopicTextService.kt](https://github.com/cherepakhin/shop_kafka_receiver/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_receiver/KafkaConsumerTestTopicTextService.kt)
 
 Тестовый сервис приема сообщений из топика __"json_topic"__:
