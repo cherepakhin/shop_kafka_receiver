@@ -55,6 +55,7 @@ MES
 MES1
 ````
 
+
 <a id="set_run_params"></a>
 ### Установка параметров запуска
 
@@ -95,6 +96,8 @@ export KAFKA_SERVER=192.168.1.20:9092
 
 Скрипт для тестовых отправок в очередь [doc/run-producer.sh](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/doc/run-producer.sh)
 
+Отправка текстовых сообщений:
+
 ````shell
 $ ./doc/run-producer.sh text_topic
 >MESSAGE_TEXT
@@ -114,8 +117,17 @@ INFO 10436 --- [ntainer#1-0-C-1] .v.s.k.KafkaConsumerTestTopicTextService : MESS
 
 ### Ручная проверка приема JSON из топика "product_ext_dto_topic"
 
+````shell
 $ ./run-producer.sh product_ext_dto_topic
 > {"n":10,"name":"NAME_10","groupDtoN":100}
+````
+
+или
+
+````shell
+$./doc/run-producer.sh product_ext_dto_topic < ./doc/product.json
+````
+(выполнять из корня проекта)
 
 В лог будет выведено:
 
