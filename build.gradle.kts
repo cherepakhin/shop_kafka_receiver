@@ -30,14 +30,14 @@ repositories {
 		url = uri("http://v.perm.ru:8082/repository/ru.perm.v") //OK
 		isAllowInsecureProtocol = true
 		credentials {
-// export NEXUS_CI_USER=admin
-// echo $NEXUS_CI_USER
-//			username = System.getenv("NEXUS_CRED_USR") ?: extra.properties["nexus-ci-username"] as String?
-// export NEXUS_CI_PASS=pass
-// echo $NEXUS_CI_PASS
-//			password = System.getenv("NEXUS_CRED_PASS") ?: extra.properties["nexus-ci-password"] as String?
-			username = "admin"
-			password = "pass"
+// export NEXUS_CRED_USR=admin
+// echo $NEXUS_CRED_USR
+			username = System.getenv("NEXUS_CRED_USR") ?: extra.properties["nexus-ci-username"] as String?
+// export NEXUS_CRED_PSW=pass
+// echo $NEXUS_CRED_PSW
+			password = System.getenv("NEXUS_CRED_PSW") ?: extra.properties["nexus-ci-password"] as String?
+//			username = "admin"
+//			password = "pass"
 		}
 	}
 }
