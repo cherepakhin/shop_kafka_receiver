@@ -1,0 +1,16 @@
+[Unit]
+Description=Kafka Service
+Requires=zookeeper.service
+After=zookeeper.service
+
+[Service]
+Type=simple
+User=vasi
+Group=vasi
+ExecStart=/bin/sh -c '/home/vasi/tools/kafka/bin/kafka-server-start.sh /home/vasi/tools/kafka/config/server.properties > /home/vasi/tools/kafka/logs/kafka.log 2>&1'
+ExecStop=/home/vasi/tools/kafka/bin/kafka-server-stop.sh
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

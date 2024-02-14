@@ -21,6 +21,8 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 Основной проект [https://github.com/cherepakhin/shop_kotlin](https://github.com/cherepakhin/shop_kotlin).
 Программа будет принимать описания товаров из очереди Kafka и обновлять описания товаров через REST внешнего проекта shop_kotlin, используя [Spring RestTemplate](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html).
 
+__Все описано для linux!!!__
+
 <a id="parameters"></a>
 ### Параметры запуска <ins>СЕРВЕРА</ins> Kafka
 
@@ -34,6 +36,41 @@ listeners=PLAINTEXT://192.168.1.20:9092
 ...
 zookeeper.connect=192.168.1.20:2181
 ```
+
+<a id="check_status_in_shell"></a>
+### Проверка работы с Kafka из shell
+
+Проверка статуса сервиса Kafka:
+
+````shell
+$ sudo systemctl status kafka.service
+...
+> systemd[1]: Stopped Kafka Service.
+...
+````
+
+Сервис остановлен.
+
+### Запуск Kafka из shell
+
+````shell
+$ sudo systemctl start kafka.service
+````
+
+Проверка статуса:
+
+````shell
+$ sudo systemctl status kafka.service
+...
+Active: active (running)
+...
+systemd[1]: Started Kafka Service.
+
+````
+Описание сервисов:
+
+[zookeeper.service](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/doc/zookeeper.service)
+[kafka.service](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/doc/kafka.service)
 
 <a id="work_in_shell"></a>
 ### Проверка работы с Kafka из shell
