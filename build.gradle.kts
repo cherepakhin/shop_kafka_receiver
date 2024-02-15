@@ -100,8 +100,8 @@ publishing {
 		}
 	}
 	publications {
-		register("mavenJava", MavenPublication::class) {
-			from(components["java"])
+		create<MavenPublication>("maven"){
+			artifact(tasks["bootJar"])
 		}
 	}
 }
