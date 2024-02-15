@@ -32,12 +32,12 @@ repositories {
 		credentials {
 // export NEXUS_CRED_USR=admin
 // echo $NEXUS_CRED_USR
-			username = System.getenv("NEXUS_CRED_USR") ?: extra.properties["nexus-ci-username"] as String?
+//			username = System.getenv("NEXUS_CRED_USR") ?: extra.properties["nexus-ci-username"] as String?
 // export NEXUS_CRED_PSW=pass
 // echo $NEXUS_CRED_PSW
-			password = System.getenv("NEXUS_CRED_PSW") ?: extra.properties["nexus-ci-password"] as String?
-//			username = "admin"
-//			password = "pass"
+//			password = System.getenv("NEXUS_CRED_PSW") ?: extra.properties["nexus-ci-password"] as String?
+			username = "admin"
+			password = "pass"
 		}
 	}
 }
