@@ -19,6 +19,7 @@ class KafkaConsumerProductExtDTOJsonTopicService {
     @KafkaListener(topics = ["product_ext_dto_topic"], groupId = "test_id",
         properties = ["auto.offset.reset=earliest","fetch.max.bytes=20971520"])
     fun readFromTopic(json: String): ProductExtDTO {
+        logger.info("read from topic: $json")
         val productExtDto = jsonProductExtDTODeserializer.deserialize("", json.toByteArray())
         log(productExtDto)
         return productExtDto

@@ -154,6 +154,14 @@ INFO 10436 --- [ntainer#1-0-C-1] .v.s.k.KafkaConsumerTestTopicTextService : MESS
 
 ### Ручная проверка приема JSON из топика "product_ext_dto_topic"
 
+Прием сообщения через консоль kafka-console-consumer.sh:
+
+````shell
+$ ~/tools/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.20:9092 --topic product_ext_dto_topic$ ~/tools/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.20:9092 --topic product_ext_dto_topic
+````
+
+Отправка:
+
 ````shell
 $ ./run-producer.sh product_ext_dto_topic
 > {"n":10,"name":"NAME_10","groupDtoN":100}
