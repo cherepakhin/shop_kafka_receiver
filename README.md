@@ -273,6 +273,8 @@ shop_kafka_consumer/doc$ ./send_many_messages.sh 2000000
 
 ![receive_2_000_000_msgs](doc/receive_2_000_000_msgs.png)
 
+разрыв в середине это принудительный перезапуск программы для проверки что будет с сообщениями в очереди. 
+
 <a id="links"></a>
 ### Ссылки
 
