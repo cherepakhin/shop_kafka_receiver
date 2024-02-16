@@ -13,6 +13,9 @@
 [Deploy to NEXUS repository](#nexus)<br/>
 
 [Spring Actuator](#spring_actuator)<br/>
+
+[Ходовые испытания при приеме 2 000 000 сообщений](#test2mln)<br/>
+
 [Ссылки](#links)<br/>
 
 <a id="target"></a>
@@ -257,6 +260,7 @@ $ http http://127.0.0.1:8988/shop_kafka_consumer/api/actuator
 ....
 ````
 
+<a id="test2mln"></a>
 ### Ходовые испытания при приеме 2 000 000 сообщений 
 
 Отправка 2_000_000 сообщений:
