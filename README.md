@@ -120,6 +120,18 @@ export API_PORT=8990
 export KAFKA_SERVER=192.168.1.20:9092
 ````
 
+<a id="bootJar"></a>
+### Генерация запускаемого jar файла
+
+Создание:
+
+````shell
+./gradlew bootJar
+````
+(**bootJar** не **bootRun!!!**)
+
+Собранный файл будет в папке **./build/libs/**. Размер ~40 Mb.
+
 <a id="run_consumer"></a>
 ### Запуск проекта
 
@@ -127,6 +139,12 @@ export KAFKA_SERVER=192.168.1.20:9092
 ~$ ./gradlew bootRun
 [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : test_id: partitions assigned: [json_topic-0]
 [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : test_id: partitions assigned: [test_topic_text-0]
+````
+
+или если сгенерирован запускаемый [jar файл](#bootJar):
+
+````shell
+~$ java -jar build/libs/shop_kafka_consumer-0.24.0131.jar
 ````
 
 Запущено слушатели для очередей "product_ext_dto_json", "product_ext_dto_topic" .
