@@ -181,6 +181,8 @@ KafkaConsumerProductExtDTOJsonTopicService : ProductExtDTO(n=10, name='NAME_10',
 
 ```
 
+Генерация и отправка множества сообщений сделан [send_many_messages.sh](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/doc/send_many_messages.sh)
+
 <a id="jenkins"></a>
 ### Сборка Jenkins
 
