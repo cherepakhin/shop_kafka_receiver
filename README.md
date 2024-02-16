@@ -12,6 +12,7 @@
 [Сборка Jenkins](#jenkins)<br/>
 [Deploy to NEXUS repository](#nexus)<br/>
 
+[Spring Actuator](#spring_actuator)<br/>
 [Ссылки](#links)<br/>
 
 <a id="target"></a>
@@ -212,6 +213,41 @@ url = uri("http://v.perm.ru:8082/repository/ru.perm.v/")
 ````shell
 $ export NEXUS_CRED_USR=admin
 $ export NEXUS_CRED_PSW=pass
+````
+
+<a id="spring_actuator"></a>
+### Spring Actuator
+Spring Actuator предназначен для получения информации о работающем приложении - статус приложения (жив/нет),  использовании памяти, cpu и т.п.. Поключен по адресу [http://127.0.0.1:8988/shop_kafka_consumer/api/actuator](http://127.0.0.1:8988/shop_kafka_consumer/api/actuator)
+
+порт указан в application.yaml:
+
+````yaml
+management:
+  ...
+  server:
+    port: 8988
+
+````
+Использование из командной строки:
+
+````shell
+$ http http://127.0.0.1:8988/shop_kafka_consumer/api/actuator
+
+{
+    "_links": {
+        "beans": {
+            "href": "http://127.0.0.1:8988/shop_kafka_consumer/api/actuator/beans",
+            "templated": false
+        },
+        "caches": {
+            "href": "http://127.0.0.1:8988/shop_kafka_consumer/api/actuator/caches",
+            "templated": false
+        },
+        "caches-cache": {
+            "href": "http://127.0.0.1:8988/shop_kafka_consumer/api/actuator/caches/{cache}",
+            "templated": true
+        },
+....
 ````
 
 <a id="links"></a>
