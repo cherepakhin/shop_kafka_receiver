@@ -11,11 +11,12 @@
 
 cat /dev/null > ./product_list.json
 
-# count number of messages
-max=120
+# count_messages = 100
+# Count messages for send. Use: shop_kafka_consumer/doc$ ./send_many_messages.sh 200
+count_messages=$1
 
 # generate messages
-for ((i=1; i < max; i++))
+for ((i=1; i < count_messages; i++))
 do
   echo "{\"n\":$i,\"name\":\"NAME_$i\",\"groupDtoN\":$i}" >> ./product_list.json
 done
