@@ -287,7 +287,7 @@ $ http http://127.0.0.1:8988/shop_kafka_consumer/api/actuator
 shop_kafka_consumer/doc$ ./send_many_messages.sh 2000000
 ````
 
-Отчет в Grafana о нагрузке CPU при <b>приеме 2_000_000</b> сообщений:
+Отчет в Grafana о нагрузке CPU при <b>ПРИЕМЕ 2_000_000</b> сообщений:
 
 ![receive_2_000_000](doc/receive_2_000_000.png)
 
