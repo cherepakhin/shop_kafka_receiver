@@ -245,7 +245,7 @@ $ export NEXUS_CRED_PSW=pass
 
 <a id="spring_actuator"></a>
 ### Spring Actuator
-Spring Actuator предназначен для получения информации о работающем приложении - статус приложения (жив/нет),  использовании памяти, cpu и т.п.. Поключен по адресу [http://127.0.0.1:8988/shop_kafka_consumer/api/actuator](http://127.0.0.1:8988/shop_kafka_consumer/api/actuator)
+Spring Actuator предназначен для получения информации о работающем приложении - статус приложения (жив/нет),  использовании памяти, cpu и т.п.. Поключен по адресу [http://127.0.0.1:8998/shop_kafka_consumer/api/actuator](http://127.0.0.1:8998/shop_kafka_consumer/api/actuator)
 
 порт указан в application.yaml:
 
@@ -253,27 +253,35 @@ Spring Actuator предназначен для получения информ�
 management:
   ...
   server:
-    port: 8988
+    port: 8998
 
 ````
 Использование из командной строки:
 
 ````shell
-$ http http://127.0.0.1:8988/shop_kafka_consumer/api/actuator
+$ http http://127.0.0.1:8998/shop_kafka_consumer/api/actuator
 
 {
     "_links": {
         "beans": {
-            "href": "http://127.0.0.1:8988/shop_kafka_consumer/api/actuator/beans",
+            "href": "http://127.0.0.1:8998/shop_kafka_consumer/api/actuator/beans",
             "templated": false
         },
         "caches": {
-            "href": "http://127.0.0.1:8988/shop_kafka_consumer/api/actuator/caches",
+            "href": "http://127.0.0.1:8998/shop_kafka_consumer/api/actuator/caches",
             "templated": false
         },
         "caches-cache": {
-            "href": "http://127.0.0.1:8988/shop_kafka_consumer/api/actuator/caches/{cache}",
+            "href": "http://127.0.0.1:8998/shop_kafka_consumer/api/actuator/caches/{cache}",
             "templated": true
+        },
+        "conditions": {
+            "href": "http://127.0.0.1:8998/shop_kafka_consumer/api/actuator/conditions",
+            "templated": false
+        },
+        "configprops": {
+            "href": "http://127.0.0.1:8998/shop_kafka_consumer/api/actuator/configprops",
+            "templated": false
         },
 ....
 ````
