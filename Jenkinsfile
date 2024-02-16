@@ -24,12 +24,18 @@ pipeline {
             }
         }
 
+        stage('Build bootJar') {
+            steps {
+                sh 'pwd;cd shop_kafka_consumer;./gradlew bootJar'
+            }
+        }
+
         stage('Publish to Nexus') {
             environment {
                 NEXUS_CRED = credentials('nexus_admin')
             }
             steps {
-                sh './gradlew publish'
+                sh 'pwd;cd shop_kafka_consumer;./gradlew publish'
             }
         }
     }
