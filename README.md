@@ -286,6 +286,12 @@ $ http http://127.0.0.1:8998/shop_kafka_consumer/api/actuator
 ....
 ````
 
+Prometheus:
+
+````shell
+$ http http://127.0.0.1:8998/shop_kafka_consumer/api/actuator/prometheus
+````
+
 <a id="test2mln"></a>
 ### Ходовые испытания при приеме 2 000 000 сообщений 
 
