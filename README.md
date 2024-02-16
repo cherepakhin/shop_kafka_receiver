@@ -293,7 +293,7 @@ shop_kafka_consumer/doc$ ./send_many_messages.sh 2000000
 
 Примечания:
 
-1. Приложение shop_kafka_consumer подключен к серверу Kafka через wifi
+1. Приложение <b>shop_kafka_consumer</b> подключен к серверу Kafka через wifi
 2. Разрыв в середине это принудительный перезапуск программы для проверки что будет с сообщениями в очереди. 
 
 <a id="links"></a>
