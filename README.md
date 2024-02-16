@@ -257,7 +257,17 @@ $ http http://127.0.0.1:8988/shop_kafka_consumer/api/actuator
 ....
 ````
 
+### Ходовые испытания при приеме 2 000 000 сообщений 
 
+Отправка 2_000_000 сообщений:
+
+````shell
+shop_kafka_consumer/doc$ ./send_many_messages.sh 2000000
+````
+
+Отчет в Grafana о нагрузке CPU при приеме 2_000_000 сообщений:
+
+![receive_2_000_000_msgs](doc/receive_2_000_000_msgs.png)
 
 <a id="links"></a>
 ### Ссылки
