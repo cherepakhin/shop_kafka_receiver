@@ -6,7 +6,7 @@
 [Проверка работы с Kafka из shell](#work_in_shell)<br/>
 
 [Установка параметров запуска](#set_run_params)<br/>
-[Запуск проекта](#run_consumer)<br/>
+[Запуск проекта](#run_project)<br/>
 [Ручная отправка в очередь из консоли продюсера](#manual_send)<br/>
 
 [Сборка Jenkins](#jenkins)<br/>
@@ -96,7 +96,6 @@ MES
 MES1
 ````
 
-
 <a id="set_run_params"></a>
 ### Установка параметров запуска
 
@@ -132,7 +131,7 @@ export KAFKA_SERVER=192.168.1.20:9092
 
 Собранный файл будет в папке **./build/libs/**. Размер ~40 Mb.
 
-<a id="run_consumer"></a>
+<a id="run_project"></a>
 ### Запуск проекта
 
 ````shell
@@ -186,16 +185,22 @@ $ ~/tools/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.1.20:90
 Отправка:
 
 ````shell
-$ ./run-producer.sh product_ext_dto_topic
+shop_kafka_producer$ ./doc/run-producer.sh product_ext_dto_topic
 > {"n":10,"name":"NAME_10","groupDtoN":100}
+````
+(выполнять из корня проекта)
+
+или из __ПРОЕКТА__ [https://github.com/cherepakhin/shop_kafka_producer](https://github.com/cherepakhin/shop_kafka_producer)
+
+````shell
+shop_kafka_producer$ ./doc/run-producer.sh product_ext_dto_topic < ./doc/product.json
 ````
 
 или
 
 ````shell
-$./doc/run-producer.sh product_ext_dto_topic < ./doc/product.json
+shop_kafka_producer$ cat doc/send_file/list_products.txt | /opt/kafka/bin/kafka-console-producer.sh --broker-list 192.168.1.20:9092 --topic product_ext_dto_topic
 ````
-(выполнять из корня проекта)
 
 В лог будет выведено:
 
