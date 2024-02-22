@@ -190,7 +190,7 @@ shop_kafka_producer$ ./doc/run-producer.sh product_ext_dto_topic
 ````
 (выполнять из корня проекта)
 
-или из __ПРОЕКТА__ [https://github.com/cherepakhin/shop_kafka_producer](https://github.com/cherepakhin/shop_kafka_producer)
+или из __ДРУГОГО ПРОЕКТА:__ [https://github.com/cherepakhin/shop_kafka_producer](https://github.com/cherepakhin/shop_kafka_producer)
 
 ````shell
 shop_kafka_producer$ ./doc/run-producer.sh product_ext_dto_topic < ./doc/product.json
