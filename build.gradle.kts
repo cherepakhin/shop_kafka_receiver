@@ -2,10 +2,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "ru.perm.v"
 // change version on publishing
-version = "0.24.0217.1"
+version = "0.24.1102"
 description = "Shop Kafka Consumer"
 val kafkaApiVersion = "3.3.1"
-var shopKotlinExtDtoVersion = "0.0.5"
+var shopKotlinExtDtoVersion = "0.0.6"
 
 buildscript {
 	var kotlinVersion: String? by extra; kotlinVersion = "1.1.51"
