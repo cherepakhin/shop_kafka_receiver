@@ -2,6 +2,7 @@
 
 ### Оглавление:
 [Цель](#target)<br/>
+[KafkaConsumerProductExtDTOJsonTopicService](#KafkaConsumerProductExtDTOJsonTopicService)<br/>
 [Параметры запуска сервера Kafka](#parameters)<br/>
 [Проверка работы с Kafka из shell](#work_in_shell)<br/>
 
@@ -26,6 +27,23 @@ Cоздать небольшое приложение на <b>Kotlin</b> с ис
 Программа будет принимать описания товаров из очереди Kafka и обновлять описания товаров через REST внешнего проекта shop_kotlin, используя [Spring RestTemplate](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html).
 
 __Все описано для linux!!!__
+
+<a id="KafkaConsumerProductExtDTOJsonTopicService"></a>
+### Основной класс
+
+[ru.perm.v.shopkotlin.kafka_consumer.KafkaConsumerProductExtDTOJsonTopicService](https://github.com/cherepakhin/shop_kafka_consumer/blob/dev/src/main/kotlin/ru/perm/v/shopkotlin/kafka_consumer/KafkaConsumerJsonTopicService.kt)
+Метод readFromTopic этого класса читает сообщения из topic "product_ext_dto_topic":
+
+````kotlin
+    @KafkaListener(topics = ["product_ext_dto_topic"], groupId = "test_id",
+        properties = ["auto.offset.reset=earliest","fetch.max.bytes=20971520"])
+    fun readFromTopic(json: String): ProductExtDTO {
+        logger.info("read from topic: $json")
+        val productExtDto= mapper.readValue(json, ProductExtDTO::class.java)
+        log(productExtDto)
+        return productExtDto
+    }
+````
 
 <a id="parameters"></a>
 ### Параметры запуска <ins>СЕРВЕРА</ins> Kafka
@@ -323,3 +341,8 @@ shop_kafka_consumer/doc$ ./send_many_messages.sh 2000000
 - [https://www.baeldung.com/rest-template](https://www.baeldung.com/rest-template)
 - [Конфигурирование, запуск и работа с Kafka](http://v.perm.ru/main/index.php/homepage/66-konfigurirovanie-zapusk-i-rabota-s-kafka)
 - [Apache Kafka with Kotlin](https://www.baeldung.com/kotlin/apache-kafka)
+
+Какие-то проблемы с Idea 2023
+
+Открыл в Idea 2021.
+Обновление зависимостей проекта сделано через телефон. 1.11.2024

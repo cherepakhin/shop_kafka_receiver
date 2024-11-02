@@ -27,7 +27,7 @@ repositories {
 	}
 	maven {
 
-		url = uri("http://v.perm.ru:8082/repository/ru.perm.v") //OK
+		url = uri("http://192.168.1.20:8081/repository/ru.perm.v") //OK
 		isAllowInsecureProtocol = true
 		credentials {
 // export NEXUS_CRED_USR=admin
@@ -94,7 +94,7 @@ tasks.withType<Test> {
 publishing {
 	repositories {
 		maven {
-			url = uri("http://v.perm.ru:8082/repository/ru.perm.v/")
+			url = uri("http://192.168.1.20:8081/repository/ru.perm.v") //OK
 			isAllowInsecureProtocol = true
 			//  publish в nexus "./gradlew publish" из ноута и Jenkins проходит
 			// export NEXUS_CRED_USR=admin

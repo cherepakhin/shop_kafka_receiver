@@ -40,7 +40,7 @@ v ~/tools $ kafkat controller
 The current controller is '0' (192.168.1.20:9092).
 
 # OK 31/01 21:50
-./kafka-run-class.sh kafka.admin.TopicCommand --describe --bootstrap-server 192.168.1.20:9092 --topic text_topic
+vasi@v ~/tools/kafka/bin$ ./kafka-run-class.sh kafka.admin.TopicCommand --describe --bootstrap-server 192.168.1.20:9092 --topic text_topic
 Topic: text_topic	TopicId: iA4J7HDUTtuFz-ZEvWgKUQ	PartitionCount: 1	ReplicationFactor: 1	Configs:
 	Topic: text_topic	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
 

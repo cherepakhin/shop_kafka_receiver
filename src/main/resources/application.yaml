@@ -1,5 +1,5 @@
 server:
-  port: ${API_PORT:8992}
+  port: ${API_PORT:8692}
   jetty:
     min-threads: 8
     max-threads: 200
@@ -56,4 +56,4 @@ management:
       percentiles-histogram:
         "[http.server.requests]": true
   server:
-    port: 8998
+    port: 8698

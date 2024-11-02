@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 import ru.perm.v.shopkotlin.extdto.ProductExtDTO
 
 /**
- * Reader from topic "product_ext_dto"
+ * Reader from topic "product_ext_dto_topic"
  */
 @Component
 class KafkaConsumerProductExtDTOJsonTopicService {
