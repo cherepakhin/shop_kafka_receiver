@@ -21,5 +21,10 @@ do
   echo "{\"n\":$i,\"name\":\"NAME_$i\",\"groupDtoN\":$i}" >> ./product_list.json
 done
 
-# send json to queue
-./run-producer.sh product_ext_dto_topic < ./product_list.json
+# Отправка сообщений
+# product_ext_dto_topic - topic for send
+#./run-producer.sh product_ext_dto_topic < ./product_list.json
+
+# Таже отправка сообщений, но без скрипта ./run-producer.sh
+# Kafka на 192.168.1.20
+/opt/kafka/bin/kafka-console-producer.sh --broker-list 192.168.1.20:9092 --topic product_ext_dto_topic < ./product_list.json
